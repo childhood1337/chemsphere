@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منصة الكيمياء | ChemSphere</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f3f7f6;--card:#fff;--ink:#1c2b33;--h:#0b2545;--mut:#586a72;--ln:#dfe8e5;--em:#0a8a66;--nv:#0b2545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c1a2b;--bg2:#102339;--card:#142a44;--ink:#e6f0ee;--h:#e6f0ee;--mut:#9db2ad;--ln:#26405c;--em:#2fd0a0;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0c1a2b;--bg2:#102339;--card:#142a44;--ink:#e6f0ee;--h:#e6f0ee;--mut:#9db2ad;--ln:#26405c;--em:#2fd0a0;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 Tajawal,"IBM Plex Sans Arabic",Tahoma,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{color:var(--h);line-height:1.35;margin:0 0 .5em}
+h2{font-size:clamp(26px,4vw,38px);font-weight:800}
+.wrap{max-width:1120px;margin:auto;padding:0 20px}
+.sec{padding:76px 0}.alt{background:var(--bg2)}
+.mut{color:var(--mut)}.lead{max-width:60ch;color:var(--mut)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--ln)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--h);text-decoration:none;white-space:nowrap}
+.links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.links a{color:var(--mut);text-decoration:none;padding:6px 12px;border-radius:99px;white-space:nowrap;font-weight:500;transition:.2s}
+.links a:hover,.links a:focus-visible{background:var(--bg2);color:var(--em)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--em);outline-offset:2px}
+.hero{background:radial-gradient(900px 500px at 15% 20%,#14507f55,transparent),#0b2545;color:#fff;padding:56px 0 48px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero h1{color:#fff;font-size:clamp(34px,5.4vw,58px);font-weight:800}
+.hero p{color:#c6d6e4;max-width:46ch;font-size:19px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.btn{font:700 16px Tajawal,sans-serif;padding:12px 26px;border-radius:99px;border:2px solid var(--em);background:var(--em);color:#fff;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s;display:inline-block}
+.btn:hover{transform:translateY(-3px)}.btn.o{background:transparent;color:#fff;border-color:#ffffff88}.btn.o:hover{background:#ffffff1a}
+.who{display:inline-block;border:1px solid #ffffff33;border-radius:99px;padding:4px 16px;font-size:14px;color:#c6d6e4}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:24px;transition:transform .25s,border-color .25s;color:inherit;text-decoration:none;display:block}
+.card:hover{transform:translateY(-5px);border-color:var(--em)}
+.ic{width:52px;height:52px;border-radius:14px;background:var(--bg2);color:var(--em);display:grid;place-items:center;font-size:26px;margin-bottom:12px;font-weight:800}
+.card p{margin:0 0 12px;color:var(--mut);font-size:16px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.tools input{flex:1 1 240px;font:500 16px Tajawal,sans-serif;padding:11px 18px;border-radius:99px;border:1px solid var(--ln);background:var(--card);color:var(--ink)}
+.chip{font:500 14px Tajawal,sans-serif;border:1px solid var(--ln);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:7px}
+.chip i{width:12px;height:12px;border-radius:50%;display:block}.chip[aria-pressed=true]{border-color:var(--em);box-shadow:0 0 0 2px var(--em) inset}
+.pt{overflow-x:auto;padding-bottom:10px}
+#ptg{display:grid;grid-template-columns:repeat(18,minmax(46px,1fr));grid-template-rows:repeat(7,auto) 14px repeat(2,auto);gap:4px;min-width:900px;direction:ltr}
+.el{border:0;border-radius:8px;padding:3px 2px;color:#0b2545;cursor:pointer;line-height:1.2;transition:transform .15s,opacity .2s;font-family:inherit;aspect-ratio:1/1.05}
+.el:hover{transform:scale(1.18);z-index:2;position:relative}.el small{display:block;font-size:10px;opacity:.75}.el b{font-size:17px;display:block}
+.el.dim{opacity:.12}
+dialog{border:1px solid var(--ln);border-radius:22px;background:var(--card);color:var(--ink);max-width:460px;width:calc(100% - 32px);padding:28px}
+dialog::backdrop{background:#0b254599}
+.big{font-size:64px;font-weight:800;direction:ltr;text-align:center;border-radius:18px;padding:8px;color:#0b2545}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:16px 0}dt{color:var(--mut)}dd{margin:0;font-weight:700}
+.lab{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+input[type=range]{width:100%;accent-color:var(--em)}
+.res{background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:22px}
+details{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px 20px;margin-top:12px}
+summary{cursor:pointer;font-weight:700;color:var(--h)}details p{margin:.4em 0}
+.eq{direction:ltr;font-size:24px;font-weight:700;color:var(--h);text-align:center;background:var(--bg2);border-radius:14px;padding:14px;margin:10px 0;overflow-x:auto}
+.qz{background:var(--card);border:1px solid var(--ln);border-radius:22px;padding:28px;max-width:720px;margin:24px auto 0}
+.opts{display:grid;gap:10px;margin:16px 0}
+.opt{font:500 17px Tajawal,sans-serif;text-align:start;padding:12px 18px;border-radius:12px;border:2px solid var(--ln);background:var(--bg);color:var(--ink);cursor:pointer;transition:.15s}
+.opt:hover{border-color:var(--em)}.opt.sel{border-color:var(--em);background:var(--bg2)}
+.opt.ok{border-color:#15a06c;background:#15a06c26}.opt.no{border-color:#d1495b;background:#d1495b26}
+.fb{min-height:28px;margin:8px 0;font-weight:500}
+.bar{height:6px;background:var(--ln);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--em);transition:width .3s}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+footer{background:#0b2545;color:#c6d6e4;text-align:center;padding:28px 20px;font-size:15px}
+ul.src{padding-inline-start:20px}ul.src a{color:var(--em);font-weight:700}
+@media(max-width:800px){.hero .wrap,.lab{grid-template-columns:1fr}.hero svg{max-width:320px;margin:auto}.sec{padding:52px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="#top" aria-label="ChemSphere"><svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#0a8a66" stroke-width="2.4"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#0b2545" stroke-width="2.4" transform="rotate(60 20 20)"/><circle cx="20" cy="20" r="4.5" fill="#0a8a66"/></svg>ChemSphere</a>
+<nav class="links" aria-label="التنقل الرئيسي"><a href="#life">الكيمياء في حياتنا</a><a href="#table">الجدول الدوري</a><a href="#lab">المختبر</a><a href="#eq">المعادلات</a><a href="#quiz">الاختبار</a><a href="#lib">المعرفة</a><a href="#owner">صاحب المنصة</a><a href="#src">المصادر</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<div>
+<span class="who">فهد صالح أحمد الشحي · الحادي عشر · 3 / عام</span>
+<h1 style="margin-top:18px">اكتشف العالم من حولك... من خلال الكيمياء</h1>
+<p>رحلتك التفاعلية لفهم العناصر والتفاعلات والأسرار العلمية التي تصنع عالمنا.</p>
+<div class="btns"><a class="btn" href="#lab">ابدأ رحلتك العلمية</a><a class="btn o" href="#table">استكشف الجدول الدوري</a></div>
+</div>
+<svg viewBox="0 0 400 400" role="img" aria-label="رسم ذرة تدور حولها الإلكترونات مع جزيء ماء">
+<g fill="none" stroke="#6fd3b4" stroke-opacity=".5" stroke-width="2"><ellipse cx="200" cy="200" rx="150" ry="55"/><ellipse cx="200" cy="200" rx="150" ry="55" transform="rotate(60 200 200)"/><ellipse cx="200" cy="200" rx="150" ry="55" transform="rotate(120 200 200)"/></g>
+<circle cx="200" cy="200" r="26" fill="#0a8a66"/><circle cx="192" cy="194" r="9" fill="#2fd0a0"/><circle cx="210" cy="208" r="9" fill="#8fe8cf"/>
+<g fill="#fff"><circle r="8"><animateMotion dur="6s" repeatCount="indefinite" path="M350 200A150 55 0 1 1 50 200A150 55 0 1 1 350 200"/></circle>
+<g transform="rotate(60 200 200)"><circle r="8"><animateMotion dur="8s" repeatCount="indefinite" path="M350 200A150 55 0 1 1 50 200A150 55 0 1 1 350 200"/></circle></g>
+<g transform="rotate(120 200 200)"><circle r="8"><animateMotion dur="10s" repeatCount="indefinite" path="M350 200A150 55 0 1 1 50 200A150 55 0 1 1 350 200"/></circle></g></g>
+<g transform="translate(300 40)"><path d="M0 0L-22 28M0 0L22 28" stroke="#c6d6e4" stroke-width="3"/><circle r="16" fill="#e5586b"/><circle cx="-22" cy="28" r="10" fill="#fff"/><circle cx="22" cy="28" r="10" fill="#fff"/><text y="-24" text-anchor="middle" fill="#c6d6e4" font-size="14">H₂O</text></g>
+<g transform="translate(60 340)" fill="none" stroke="#c6d6e4" stroke-width="3"><polygon points="0,-24 21,-12 21,12 0,24 -21,12 -21,-12"/><circle r="9"/></g>
+</svg>
+</div></section>
+
+<section class="sec" id="life"><div class="wrap">
+<h2>الكيمياء في حياتنا</h2><p class="lead">كل ما تلمسه وتأكله وتتنفسه يخضع لقوانين الكيمياء.</p>
+<div class="grid" style="margin-top:24px">
+<div class="card"><div class="ic">✚</div><h3>الطب</h3><p>تُصمَّم الأدوية والمطهّرات والمحاليل الطبية بفهم التفاعلات داخل الجسم.</p></div>
+<div class="card"><div class="ic">⚡</div><h3>الطاقة</h3><p>من احتراق الوقود إلى البطاريات والخلايا الشمسية، الطاقة تبدأ بتفاعل كيميائي.</p></div>
+<div class="card"><div class="ic">❋</div><h3>الغذاء</h3><p>الطهي والتخمير وحفظ الطعام عمليات كيميائية تغيّر المواد وتحفظها.</p></div>
+<div class="card"><div class="ic">♻</div><h3>البيئة</h3><p>تحليل جودة الماء والهواء والكيمياء الخضراء تساعد على حماية كوكبنا.</p></div>
+</div>
+<h2 style="margin-top:56px">أقسام المنصة</h2>
+<div class="grid">
+<a class="card" href="#table"><div class="ic">▦</div><h3>الجدول الدوري</h3><p>118 عنصراً مع بحث وفلترة وبطاقات معلومات.</p></a>
+<a class="card" href="#lab"><div class="ic">⚗</div><h3>مختبر الكيمياء</h3><p>تجارب افتراضية آمنة وتجربة pH تفاعلية.</p></a>
+<a class="card" href="#eq"><div class="ic">⇌</div><h3>المعادلات</h3><p>تعلّم الموازنة وقانون حفظ الكتلة.</p></a>
+<a class="card" href="#quiz"><div class="ic">✓</div><h3>اختبر معلوماتك</h3><p>عشرة أسئلة مع تفسير علمي لكل إجابة.</p></a>
+<a class="card" href="#lib"><div class="ic">❖</div><h3>مكتبة المعرفة</h3><p>بطاقات تعليمية عن سبعة موضوعات أساسية.</p></a>
+</div></div></section>
+
+<section class="sec alt" id="table"><div class="wrap">
+<h2>الجدول الدوري التفاعلي</h2>
+<p class="lead">اضغط على أي عنصر لعرض بطاقته. القيم الذرية تقريبية، والعناصر المشعة تُعرض بعدد الكتلة لأطول نظائرها عمراً.</p>
+<div class="tools"><input id="q" type="search" placeholder="ابحث بالاسم العربي أو الإنجليزي أو الرمز..." aria-label="بحث عن عنصر"></div>
+<div class="tools" id="chips" role="group" aria-label="تصفية حسب الفئة" style="margin-top:0"></div>
+<p id="cnt" class="mut" aria-live="polite"></p>
+<div class="pt"><div id="ptg"></div></div>
+</div></section>
+
+<section class="sec" id="lab"><div class="wrap">
+<h2>مختبر الكيمياء</h2>
+<p class="lead">تجارب افتراضية تعليمية للشرح فقط، وليست بديلاً عن العمل في المختبر المدرسي بإشراف المعلم.</p>
+<div class="lab" style="margin-top:26px">
+<div class="res" style="text-align:center">
+<svg viewBox="0 0 200 220" width="220" role="img" aria-label="كأس يتغير لون المحلول فيه بحسب pH"><path d="M40 20h120l-8 170a14 14 0 0 1-14 14H62a14 14 0 0 1-14-14z" fill="none" stroke="var(--mut)" stroke-width="4"/><path id="liq" d="M47 80h106l-5 110a10 10 0 0 1-10 10H62a10 10 0 0 1-10-10z"/></svg>
+<div class="mut">اسحب المنزلق لتغيير الرقم الهيدروجيني</div>
+</div>
+<div class="res"><h3>استكشاف pH مع الكاشف العام</h3>
+<label for="ph">pH = <b id="phv">7</b></label><input id="ph" type="range" min="0" max="14" step="0.5" value="7">
+<dl><dt>نوع المحلول</dt><dd id="pht"></dd><dt>تركيز H<sup>+</sup></dt><dd id="phh" style="direction:ltr;text-align:right"></dd><dt>تركيز OH<sup>−</sup></dt><dd id="pho" style="direction:ltr;text-align:right"></dd><dt>أمثلة</dt><dd id="phe"></dd></dl>
+<p class="mut" style="font-size:14px">الألوان تقريبية لكاشف عام، والحسابات عند 25°م: [H⁺] = 10⁻ᵖᴴ.</p></div>
+</div>
+<div id="exps"></div>
+</div></section>
+
+<section class="sec alt" id="eq"><div class="wrap">
+<h2>المعادلات الكيميائية</h2>
+<p class="lead">المعادلة وصف رمزي للتفاعل: المواد المتفاعلة على اليسار، والنواتج على اليمين بعد السهم.</p>
+<div class="grid" style="margin-top:20px">
+<div class="card"><h3>تكوين الماء</h3><div class="eq" data-f="2H2 + O2 -> 2H2O"></div><p>المتفاعلات: H₂ وO₂. الناتج: H₂O. المعامل 2 يخبرنا بعدد الجزيئات.</p></div>
+<div class="card"><h3>التعادل</h3><div class="eq" data-f="HCl + NaOH -> NaCl + H2O"></div><p>حمض + قاعدة → ملح + ماء. المعادلة موزونة أصلاً: كل ذرة تظهر مرة واحدة في الجهتين.</p></div>
+</div>
+<div class="card" style="margin-top:18px"><h3>قانون حفظ الكتلة وطريقة الموازنة</h3>
+<p>لا تفنى المادة ولا تُستحدث في التفاعل الكيميائي، فعدد كل نوع من الذرات متساوٍ قبل التفاعل وبعده. وللموازنة: (1) عدّ الذرات في الجهتين. (2) غيّر المعاملات فقط، ولا تغيّر الأرقام السفلية داخل الصيغ. (3) أعد العدّ حتى تتساوى جميع الذرات.</p></div>
+<h3 style="margin-top:32px">تمرين: اختر المعادلة الموزونة</h3><div class="qz" id="eqq"></div>
+</div></section>
+
+<section class="sec" id="quiz"><div class="wrap">
+<h2>اختبر معلوماتك</h2><p class="lead">عشرة أسئلة، اختر إجابتك ثم اضغط «تأكيد الإجابة».</p>
+<div class="qz" id="qzb"></div>
+</div></section>
+
+<section class="sec alt" id="lib"><div class="wrap">
+<h2>مكتبة المعرفة الكيميائية</h2>
+<div class="grid" id="libg" style="margin-top:22px"></div>
+</div></section>
+
+<section class="sec" id="owner"><div class="wrap">
+<h2>صاحب المنصة</h2>
+<div class="card" style="max-width:640px"><div class="ic">ف</div>
+<dl><dt>إعداد الطالب</dt><dd>فهد صالح أحمد محمد الشحي</dd><dt>الصف</dt><dd>الحادي عشر</dd><dt>الشعبة</dt><dd>3 / عام</dd></dl>
+<p>منصة تعليمية تفاعلية تهدف إلى تقديم مفاهيم الكيمياء بأسلوب مبسط، يجمع بين المعرفة العلمية والتجربة الرقمية والتصميم الحديث.</p></div>
+</div></section>
+
+<section class="sec alt" id="src"><div class="wrap">
+<h2>المصادر العلمية</h2>
+<ul class="src">
+<li><a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noopener">IUPAC — الجدول الدوري للعناصر</a></li>
+<li><a href="https://www.rsc.org/periodic-table" target="_blank" rel="noopener">Royal Society of Chemistry — الجدول الدوري</a></li>
+<li><a href="https://www.nist.gov/pml/atomic-weights-and-isotopic-compositions-relative-atomic-masses" target="_blank" rel="noopener">NIST — الكتل الذرية والتركيب النظائري</a></li>
+<li><a href="https://webbook.nist.gov/chemistry/" target="_blank" rel="noopener">NIST Chemistry WebBook</a></li>
+<li><a href="https://chem.libretexts.org/" target="_blank" rel="noopener">LibreTexts Chemistry — مصدر جامعي مفتوح</a></li>
+</ul></div></section>
+</main>
+<footer>© ChemSphere · منصة الكيمياء · إعداد الطالب فهد صالح أحمد محمد الشحي</footer>
+
+<dialog id="dlg"><div id="dc"></div><form method="dialog" style="margin-top:16px"><button class="btn">إغلاق</button></form></dialog>
+
+<script>
+const f=s=>s.replace(/([A-Za-z)])(\d+)/g,"$1<sub>$2</sub>").replace(/->/g,"→");
+const $=s=>document.querySelector(s);
+document.querySelectorAll("[data-f]").forEach(e=>e.innerHTML=f(e.dataset.f));
+if(matchMedia("(prefers-reduced-motion:reduce)").matches)document.querySelector(".hero svg").pauseAnimations();
+
+/* ===== الجدول الدوري ===== */
+const D=`H,هيدروجين,Hydrogen,1.008;He,هيليوم,Helium,4.003;Li,ليثيوم,Lithium,6.94;Be,بيريليوم,Beryllium,9.012;B,بورون,Boron,10.81;C,كربون,Carbon,12.011;N,نيتروجين,Nitrogen,14.007;O,أكسجين,Oxygen,15.999;F,فلور,Fluorine,18.998;Ne,نيون,Neon,20.180;Na,صوديوم,Sodium,22.990;Mg,مغنيسيوم,Magnesium,24.305;Al,ألومنيوم,Aluminium,26.982;Si,سيليكون,Silicon,28.085;P,فوسفور,Phosphorus,30.974;S,كبريت,Sulfur,32.06;Cl,كلور,Chlorine,35.45;Ar,أرغون,Argon,39.95;K,بوتاسيوم,Potassium,39.098;Ca,كالسيوم,Calcium,40.078;Sc,سكانديوم,Scandium,44.956;Ti,تيتانيوم,Titanium,47.867;V,فاناديوم,Vanadium,50.942;Cr,كروم,Chromium,51.996;Mn,منغنيز,Manganese,54.938;Fe,حديد,Iron,55.845;Co,كوبالت,Cobalt,58.933;Ni,نيكل,Nickel,58.693;Cu,نحاس,Copper,63.546;Zn,زنك,Zinc,65.38;Ga,غاليوم,Gallium,69.723;Ge,جرمانيوم,Germanium,72.630;As,زرنيخ,Arsenic,74.922;Se,سيلينيوم,Selenium,78.971;Br,بروم,Bromine,79.904;Kr,كريبتون,Krypton,83.798;Rb,روبيديوم,Rubidium,85.468;Sr,سترونشيوم,Strontium,87.62;Y,إتريوم,Yttrium,88.906;Zr,زركونيوم,Zirconium,91.224;Nb,نيوبيوم,Niobium,92.906;Mo,موليبدنوم,Molybdenum,95.95;Tc,تكنيشيوم,Technetium,98;Ru,روثينيوم,Ruthenium,101.07;Rh,روديوم,Rhodium,102.91;Pd,بالاديوم,Palladium,106.42;Ag,فضة,Silver,107.87;Cd,كادميوم,Cadmium,112.41;In,إنديوم,Indium,114.82;Sn,قصدير,Tin,118.71;Sb,أنتيمون,Antimony,121.76;Te,تيلوريوم,Tellurium,127.60;I,يود,Iodine,126.90;Xe,زينون,Xenon,131.29;Cs,سيزيوم,Caesium,132.91;Ba,باريوم,Barium,137.33;La,لانثانوم,Lanthanum,138.91;Ce,سيريوم,Cerium,140.12;Pr,براسيوديميوم,Praseodymium,140.91;Nd,نيوديميوم,Neodymium,144.24;Pm,بروميثيوم,Promethium,145;Sm,ساماريوم,Samarium,150.36;Eu,يوروبيوم,Europium,151.96;Gd,غادولينيوم,Gadolinium,157.25;Tb,تربيوم,Terbium,158.93;Dy,ديسبروسيوم,Dysprosium,162.50;Ho,هولميوم,Holmium,164.93;Er,إربيوم,Erbium,167.26;Tm,ثوليوم,Thulium,168.93;Yb,إيتربيوم,Ytterbium,173.05;Lu,لوتيتيوم,Lutetium,174.97;Hf,هافنيوم,Hafnium,178.49;Ta,تانتالوم,Tantalum,180.95;W,تنغستن,Tungsten,183.84;Re,رينيوم,Rhenium,186.21;Os,أوزميوم,Osmium,190.23;Ir,إيريديوم,Iridium,192.22;Pt,بلاتين,Platinum,195.08;Au,ذهب,Gold,196.97;Hg,زئبق,Mercury,200.59;Tl,ثاليوم,Thallium,204.38;Pb,رصاص,Lead,207.2;Bi,بزموث,Bismuth,208.98;Po,بولونيوم,Polonium,209;At,أستاتين,Astatine,210;Rn,رادون,Radon,222;Fr,فرانسيوم,Francium,223;Ra,راديوم,Radium,226;Ac,أكتينيوم,Actinium,227;Th,ثوريوم,Thorium,232.04;Pa,بروتاكتينيوم,Protactinium,231.04;U,يورانيوم,Uranium,238.03;Np,نبتونيوم,Neptunium,237;Pu,بلوتونيوم,Plutonium,244;Am,أمريسيوم,Americium,243;Cm,كوريوم,Curium,247;Bk,بيركليوم,Berkelium,247;Cf,كاليفورنيوم,Californium,251;Es,أينشتاينيوم,Einsteinium,252;Fm,فرميوم,Fermium,257;Md,مندليفيوم,Mendelevium,258;No,نوبليوم,Nobelium,259;Lr,لورنسيوم,Lawrencium,266;Rf,رذرفورديوم,Rutherfordium,267;Db,دوبنيوم,Dubnium,268;Sg,سيبورغيوم,Seaborgium,269;Bh,بوريوم,Bohrium,270;Hs,هاسيوم,Hassium,277;Mt,مايتنريوم,Meitnerium,278;Ds,دارمشتاتيوم,Darmstadtium,281;Rg,رونتجينيوم,Roentgenium,282;Cn,كوبرنيسيوم,Copernicium,285;Nh,نيهونيوم,Nihonium,286;Fl,فليروفيوم,Flerovium,289;Mc,موسكوفيوم,Moscovium,290;Lv,ليفرموريوم,Livermorium,293;Ts,تينيسين,Tennessine,294;Og,أوغانيسون,Oganesson,294`.split(";").map((s,i)=>{const[a,b,c,d]=s.split(",");return{z:i+1,s:a,ar:b,en:c,m:d}});
+const CT={a:["فلزات قلوية",355],e:["قلوية أرضية",25],g:["غازات نبيلة",48],m:["أشباه فلزات",85],n:["لافلزات",140],h:["هالوجينات",170],p:["فلزات ما بعد الانتقالية",200],t:["فلزات انتقالية",225],l:["لانثانيدات",275],c:["أكتينيدات",315]};
+const inn=(z,a)=>a.includes(z);
+const cat=z=>z==1?"n":inn(z,[2,10,18,36,54,86,118])?"g":inn(z,[9,17,35,53,85,117])?"h":inn(z,[3,11,19,37,55,87])?"a":inn(z,[4,12,20,38,56,88])?"e":z>=57&&z<=71?"l":z>=89&&z<=103?"c":inn(z,[5,14,32,33,51,52])?"m":inn(z,[6,7,8,15,16,34])?"n":inn(z,[13,31,49,50,81,82,83,84,113,114,115,116])?"p":"t";
+const st=z=>inn(z,[1,2,7,8,9,10,17,18,36,54,86])?"غاز":inn(z,[35,80])?"سائل":(z>=100||inn(z,[85,87]))?"غير معروفة بدقة":"صلب";
+const pos=z=>z==1?[1,1]:z==2?[1,18]:z<5?[2,z-2]:z<11?[2,z+8]:z<13?[3,z-10]:z<19?[3,z]:z<37?[4,z-18]:z<55?[5,z-36]:z<57?[6,z-54]:z<72?[9,z-54]:z<87?[6,z-68]:z<89?[7,z-86]:z<104?[10,z-86]:[7,z-100];
+const col=k=>`hsl(${CT[k][1]} 60% 86%)`;
+const grid=$("#ptg");let fc="";
+D.forEach(e=>{e.c=cat(e.z);const[r,c]=pos(e.z);const b=document.createElement("button");b.className="el";b.style.cssText=`grid-row:${r};grid-column:${c};background:${col(e.c)}`;b.innerHTML=`<small>${e.z}</small><b>${e.s}</b><small>${e.ar}</small>`;b.setAttribute("aria-label",`${e.ar} ${e.en}، العدد الذري ${e.z}`);b.onclick=()=>show(e);e.b=b;grid.append(b)});
+const chips=$("#chips");
+[["",["الكل"]],...Object.entries(CT)].forEach(([k,v])=>{const b=document.createElement("button");b.className="chip";b.setAttribute("aria-pressed",k==="");b.innerHTML=(k?`<i style="background:${col(k)}"></i>`:"")+v[0];b.onclick=()=>{fc=k;chips.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));flt()};chips.append(b)});
+function flt(){const q=$("#q").value.trim().toLowerCase();let n=0;D.forEach(e=>{const ok=(!fc||e.c===fc)&&(!q||e.ar.includes(q)||e.en.toLowerCase().includes(q)||e.s.toLowerCase()===q||e.s.toLowerCase().startsWith(q));e.b.classList.toggle("dim",!ok);n+=ok});$("#cnt").textContent=`العناصر المطابقة: ${n} من 118`}
+$("#q").oninput=flt;flt();
+const dlg=$("#dlg");
+function show(e){$("#dc").innerHTML=`<div class="big" style="background:${col(e.c)}">${e.s}</div><h3 style="margin-top:14px">${e.ar} — ${e.en}</h3><dl><dt>العدد الذري</dt><dd>${e.z}</dd><dt>الكتلة الذرية التقريبية</dt><dd>≈ ${e.m}</dd><dt>التصنيف</dt><dd>${CT[e.c][0]}</dd><dt>الحالة عند درجة حرارة الغرفة</dt><dd>${st(e.z)}</dd></dl>`;dlg.showModal()}
+function info(t,h){$("#dc").innerHTML=`<h3>${t}</h3>${h}`;dlg.showModal()}
+
+/* ===== المختبر ===== */
+const ph=$("#ph");
+function upd(){const v=+ph.value;const hue=v<=7?v/7*110:110+(v-7)/7*160;$("#liq").setAttribute("fill",`hsl(${hue} 70% 52%)`);$("#phv").textContent=v;$("#pht").textContent=v<7?"حمضي":v>7?"قاعدي":"متعادل";$("#phh").textContent=(10**-v).toExponential(1)+" mol/L";$("#pho").textContent=(10**(v-14)).toExponential(1)+" mol/L";$("#phe").textContent=v<=2?"عصير الليمون وحمض المعدة":v<=4?"الخل والمشروبات الغازية":v<=6?"القهوة ومياه المطر":v==7?"الماء النقي":v<=9?"ماء البحر ومحلول صودا الخبز":v<=11.5?"الأمونيا المنزلية":"المنظفات القوية (خطرة في الواقع)"}
+ph.oninput=upd;upd();
+const EX=[
+["الذوبان في الماء","كأس زجاجية، ماء، ملعقة، ملح الطعام (NaCl).","أضف ملعقة ملح إلى الماء وحرّك حتى يختفي الملح.","يختفي الملح ويصبح المحلول شفافاً.","جزيئات الماء قطبية، فتحيط بأيونات Na+ وCl− وتفصلها عن البلورة فتذوب."],
+["تكوّن الراسب","كأسان، محلول كلوريد الكالسيوم CaCl2، محلول كربونات الصوديوم Na2CO3 (عرض المعلم).","اسكب محلولاً في الآخر وراقب المزيج.","يتكوّن عكر أبيض يترسب في القاع.","CaCl2 + Na2CO3 -> CaCO3↓ + 2NaCl: كربونات الكالسيوم شحيحة الذوبان فتترسب، وNaCl يبقى ذائباً."],
+["تغيّر لون المؤشر","مستخلص الملفوف الأحمر، خل (حمض)، محلول صودا الخبز (قاعدة ضعيفة).","ضع المستخلص في كأسين وأضف الخل إلى الأول والصودا إلى الثاني.","يميل اللون إلى الأحمر/الوردي في الحمض، وإلى الأخضر/الأزرق في القاعدة.","صبغة الأنثوسيانين تغيّر بنيتها الكيميائية بتغيّر pH فيتغيّر لونها."]];
+$("#exps").innerHTML=EX.map(x=>`<details><summary>${x[0]}</summary><p><b>الأدوات والمواد:</b> ${f(x[1])}</p><p><b>الخطوات:</b> ${x[2]}</p><p><b>النتيجة المتوقعة:</b> ${x[3]}</p><p><b>التفسير الكيميائي:</b> ${f(x[4]).replace(/Na\+/,"Na<sup>+</sup>").replace(/Cl−/,"Cl<sup>−</sup>")}</p></details>`).join("");
+
+/* ===== محرك الأسئلة ===== */
+function quiz(el,qs,fin){let i=0,sc=0,pk=-1,done=false;
+function draw(){
+if(i>=qs.length){const p=sc/qs.length;el.innerHTML=`<h3>نتيجتك: ${sc} / ${qs.length}</h3><p>${p==1?"مبهر! علامة كاملة.":p>=.7?"أحسنت! مستوى ممتاز، ومراجعة بسيطة توصلك للكمال.":p>=.4?"بداية جيدة، راجع مكتبة المعرفة وحاول مجدداً.":"لا بأس، الكيمياء تُتقَن بالتكرار. جرّب مرة أخرى بعد مراجعة الأقسام."}</p><button class="btn" id="rt">إعادة الاختبار</button>`;$("#rt",el)||0;el.querySelector("#rt").onclick=()=>{i=sc=0;draw()};return}
+const q=qs[i];pk=-1;done=false;
+el.innerHTML=`<div class="bar"><i style="width:${i/qs.length*100}%"></i></div><p class="mut">السؤال ${i+1} من ${qs.length}</p><h3>${f(q[0])}</h3><div class="opts" role="radiogroup">${q[1].map((o,k)=>`<button class="opt" role="radio" aria-checked="false" data-k="${k}" dir="auto">${f(o)}</button>`).join("")}</div><div class="fb" aria-live="polite"></div><button class="btn" id="ok" disabled>تأكيد الإجابة</button>`;
+const os=[...el.querySelectorAll(".opt")],ok=el.querySelector("#ok"),fb=el.querySelector(".fb");
+os.forEach(o=>o.onclick=()=>{if(done)return;pk=+o.dataset.k;os.forEach(x=>{x.classList.toggle("sel",x===o);x.setAttribute("aria-checked",x===o)});ok.disabled=false});
+ok.onclick=()=>{if(!done){done=true;const r=pk==q[2];sc+=r;os.forEach((x,k)=>{if(k==q[2])x.classList.add("ok");else if(k==pk)x.classList.add("no")});fb.innerHTML=(r?"✔ إجابة صحيحة. ":"✘ إجابة خاطئة. ")+f(q[3]);ok.textContent=i==qs.length-1?"عرض النتيجة":"السؤال التالي"}else{i++;draw()}}}
+draw()}
+quiz($("#eqq"),[
+["أي صيغة موزونة لتكوّن الماء؟",["H2 + O2 -> H2O","2H2 + O2 -> 2H2O","H2 + 2O2 -> 2H2O","2H2 + 2O2 -> 2H2O"],1,"في الصيغة الصحيحة 4 ذرات H و2 ذرة O في كل جهة."],
+["أي صيغة موزونة لتكوّن كلوريد الصوديوم؟",["Na + Cl2 -> NaCl","2Na + Cl2 -> 2NaCl","Na + 2Cl2 -> 2NaCl","2Na + 2Cl2 -> NaCl"],1,"2Na وCl2 تعطي 2NaCl: ذرتان من كل عنصر في كل جهة."],
+["أي صيغة موزونة لتكوّن الأمونيا؟",["N2 + H2 -> NH3","N2 + 3H2 -> NH3","2N2 + 3H2 -> 2NH3","N2 + 3H2 -> 2NH3"],3,"في الجهتين ذرتا N وست ذرات H."]]);
+quiz($("#qzb"),[
+["ما الرمز الكيميائي للذهب؟",["Ag","Au","Gd","Go"],1,"Au من الاسم اللاتيني aurum، أما Ag فللفضة."],
+["العدد الذري لعنصر يساوي عدد…",["النيوترونات","البروتونات في نواته","مستويات الطاقة","الإلكترونات التكافؤية فقط"],1,"العدد الذري هو عدد البروتونات، وهو ما يحدد هوية العنصر."],
+["محلول قيمة pH له 3، فهو…",["قاعدي","متعادل","حمضي","لا يمكن تحديده"],2,"pH الأقل من 7 يدل على محلول حمضي."],
+["ما نوع الرابطة في كلوريد الصوديوم NaCl؟",["أيونية","تساهمية غير قطبية","تساهمية قطبية","فلزية"],0,"ينتقل إلكترون من Na إلى Cl فتتكوّن أيونات متجاذبة."],
+["أي العناصر التالية غاز نبيل؟",["Cl","Na","Ne","O"],2,"النيون Ne من المجموعة 18 ومستوى طاقته الخارجي ممتلئ."],
+["ينص قانون حفظ الكتلة على أن…",["الكتلة تزيد في التفاعلات","كتلة المتفاعلات = كتلة النواتج","الذرات تفنى أثناء التفاعل","النواتج أخف دائماً"],1,"لا تفنى المادة ولا تُستحدث، لذلك تبقى الكتلة الكلية ثابتة في نظام مغلق."],
+["كم ذرة هيدروجين في جزيء واحد من الماء H2O؟",["1","2","3","4"],1,"الرقم السفلي 2 بعد H يعني ذرتين."],
+["أي الجسيمات التالية سالب الشحنة؟",["البروتون","النيوترون","الإلكترون","النواة"],2,"الإلكترونات سالبة، والبروتونات موجبة، والنيوترونات متعادلة."],
+["أي مما يلي فلز قلوي؟",["Ca","Na","Al","Fe"],1,"الصوديوم Na من المجموعة 1."],
+["أي مما يلي حمض قوي؟",["HCl","NaOH","NaCl","H2O"],0,"HCl يتأين كلياً في الماء معطياً أيونات H+."]]);
+
+/* ===== المكتبة ===== */
+const LB=[["⚛","تركيب الذرة","نواة موجبة تحيط بها إلكترونات سالبة.","تتكوّن النواة من بروتونات موجبة ونيوترونات متعادلة، وتدور الإلكترونات في مستويات طاقة حولها. العدد الذري = عدد البروتونات، وعدد الكتلة = البروتونات + النيوترونات."],
+["▦","الجدول الدوري","ترتيب العناصر حسب العدد الذري.","للجدول 18 مجموعة و7 دورات. عناصر المجموعة الواحدة تتشابه في خواصها لتشابه إلكترونات التكافؤ."],
+["⛓","الروابط الكيميائية","كيف ترتبط الذرات لتكوّن المركبات.","في الرابطة الأيونية تنتقل الإلكترونات (NaCl)، وفي التساهمية تتشارك الذرات إلكترونات (H₂O)، وفي الفلزية تتحرك الإلكترونات بحرية بين الأيونات الموجبة."],
+["⚗","الأحماض والقواعد","مقياس pH يصف حموضة المحلول.","الحمض يزيد تركيز أيونات H⁺ في الماء. عند 25°م: pH أقل من 7 حمضي، و7 متعادل، وأكثر من 7 قاعدي."],
+["↻","التفاعلات الكيميائية","مواد تتحول إلى مواد جديدة.","من علاماتها تغيّر اللون أو تصاعد غاز أو تكوّن راسب أو تغيّر الحرارة. ومن أنواعها: الاتحاد والتحلل والإحلال والتعادل."],
+["♻","الكيمياء والبيئة","حماية الماء والهواء والتربة.","تحلل الكيمياء ملوثات الماء والهواء، وتقلل الكيمياء الخضراء النفايات. والمطر الحمضي ينتج جزئياً من أكاسيد الكبريت والنيتروجين."],
+["⚡","الكيمياء والطاقة","من الوقود إلى البطاريات.","الاحتراق يحرّر طاقة الوقود، والبطاريات تحوّل طاقة تفاعلات الأكسدة والاختزال إلى كهرباء، والهيدروجين وقود واعد لا ينتج عند احتراقه سوى الماء."]];
+$("#libg").innerHTML=LB.map((x,i)=>`<div class="card"><div class="ic" aria-hidden="true">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p><button class="btn" data-i="${i}" style="padding:8px 20px">اكتشف المزيد</button></div>`).join("");
+document.querySelectorAll("#libg .btn").forEach(b=>b.onclick=()=>{const x=LB[b.dataset.i];info(x[1],`<p>${x[3]}</p>`)});
+</script>
+</body>
+</html>
